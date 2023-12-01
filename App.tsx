@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import type { PropsWithChildren } from 'react';
 import {
@@ -19,7 +20,24 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './screens/Home';
 
+const MainStack = createNativeStackNavigator();
+const RootStack = createNativeStackNavigator();
+
+const MainStackScreen = () => {
+  return (
+    <MainStack.Navigator>
+      <MainStack.Screen name="Home" component={Home} />
+      {/* <MainStack.Screen
+        name="ColorPalette"
+        component={ColorPalette}
+        options={({ route }) => ({ title: route.params.paletteName })}
+      /> */}
+    </MainStack.Navigator>
+  );
+};
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,7 +49,14 @@ function App(): JSX.Element {
   return (
 
     <NavigationContainer>
-
+      <RootStack.Navigator>
+        <RootStack.Screen
+          name="Main"
+          component={MainStackScreen}
+          options={{ headerShown: false }}
+        />
+        {/* <RootStack.Screen name="AddNewPalette" component={AddNewPaletteModal} /> */}
+      </RootStack.Navigator>
     </NavigationContainer>
 
   );
