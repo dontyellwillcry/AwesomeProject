@@ -1,5 +1,11 @@
 package com.awesomeproject;
+<<<<<<< HEAD
 import android.os.Bundle;
+=======
+
+import android.os.Bundle;
+
+>>>>>>> c01213fdc04e64860e264a8e9045dc69459f0bcc
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
@@ -16,6 +22,11 @@ public class MainActivity extends ReactActivity {
     return "AwesomeProject";
   }
   @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+  }
+
+ @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);
   }
